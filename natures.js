@@ -26,9 +26,9 @@ var pkmn_natures = {
     var effect = {"up": "", "down": ""};
     var statNames = ["atk", "def", "spatk", "spdef", "spd"]
     statNames.forEach(function(stat){
-      if (natures[stat].up.indexOf(nat) !== -1)
+      if (pkmn_natures[stat].up.indexOf(nat) !== -1)
         effect.up = stat;
-      if (natures[stat].down.indexOf(nat) !== -1)
+      if (pkmn_natures[stat].down.indexOf(nat) !== -1)
         effect.down = stat;
     });
     return effect;
@@ -37,7 +37,7 @@ var pkmn_natures = {
   "getNatureStr" : function(nat){
     var statAbbrs = {"atk":"Atk", "def":"Def", "spatk":"SpAtk", "spdef":"SpDef", "spd":"Spd"};
     var str = nat.charAt(0).toUpperCase() + nat.slice(1);
-    var effect = natures.getEffect(nat);
+    var effect = pkmn_natures.getEffect(nat);
     if (effect.up !== effect.down)
       str += " : +" + statAbbrs[effect.up] + " -" + statAbbrs[effect.down];
     return str;
